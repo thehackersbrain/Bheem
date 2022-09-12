@@ -1,14 +1,20 @@
 #!/bin/sh
 
+# installing necessary packages
 sudo apt-get install python3;
 sudo apt-get install python3-pip;
 sudo apt-get install ruby;
 sudo apt-get install screen;
 sudo apt-get install git;
+
+# creating tools directories
 mkdir ~/.gf
-mkdir ~/Tools;
-mkdir ~/Recon;
-dir=~/Tools;
+mkdir ~/tools;
+mkdir ~/recon;
+dir=~/tools;
+homedir="$HOME"
+
+# Installing hunting tools
 go get github.com/Ice3man543/SubOver;
 go get -u github.com/tomnomnom/gf;
 go get -u github.com/tomnomnom/assetfinder;
@@ -39,8 +45,10 @@ git clone https://github.com/ozguralp/gmapsapiscanner $dir/gmapsapiscanner;
 go get -u -v github.com/projectdiscovery/shuffledns/cmd/shuffledns;
 git clone https://github.com/1ndianl33t/Gf-Patterns $dir/Gf-Patterns;
 pip3 install corscanner
-pip3 install -r ~/Tools/*/requirements.txt;
-mv $dir/Gf-Patterns/*.json /root/.gf/;
+pip3 install -r ~/tools/*/requirements.txt;
+
+
+mv $dir/Gf-Patterns/*.json $homedir/.gf/;
 rm -r $dir/Gf-Patterns;
 git clone https://github.com/KathanP19/JSFScan.sh $dir/JSFScan.sh;
 mv arsenal ~/arsenal;
@@ -50,4 +58,4 @@ cd $dir/massdns; make;
 cp $dir/massdns/bin/massdns /usr/bin/;
 cd ~/.gf; wget https://raw.githubusercontent.com/devanshbatham/ParamSpider/master/gf_profiles/potential.json;
 cd ~/go/bin; wget https://raw.githubusercontent.com/Ice3man543/SubOver/master/providers.json;
-cd ~/Tools; wget https://gist.githubusercontent.com/KathanP19/d2cda2f99c0b60d64b76ee6039b37e47/raw/eb105a4de06502b2732df9d682c61189c3703685/jsvar.sh;
+cd ~/tools; wget https://gist.githubusercontent.com/KathanP19/d2cda2f99c0b60d64b76ee6039b37e47/raw/eb105a4de06502b2732df9d682c61189c3703685/jsvar.sh;
